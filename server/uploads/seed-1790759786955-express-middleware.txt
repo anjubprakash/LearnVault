@@ -1,0 +1,20 @@
+EXPRESS MIDDLEWARE ARCHITECTURE NOTES
+=====================================
+
+1. Middleware Function Signature:
+   (req, res, next) => { ... next(); }
+
+2. Order of Execution:
+   Middleware executes sequentially in the order registered via app.use() / router.use().
+
+3. Error-handling Middleware:
+   Must have 4 arguments: (err, req, res, next).
+
+4. Common Middleware Chain:
+   - Request logger (morgan / pino)
+   - Security headers (helmet)
+   - CORS (cors)
+   - Body Parsers (express.json())
+   - JWT Authentication
+   - Route Handlers
+   - Global Error Handler
